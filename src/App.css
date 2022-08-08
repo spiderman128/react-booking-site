@@ -1,0 +1,189 @@
+/*
+ Font
+ */
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 100;
+  src: url('./assets/fonts/WorkSans-Thin.ttf');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 200;
+  src: url('./assets/fonts/WorkSans-ExtraLight.ttf');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 300;
+  src: url('./assets/fonts/WorkSans-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 400;
+  src: url('./assets/fonts/WorkSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 500;
+  src: url('./assets/fonts/WorkSans-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 600;
+  src: url('./assets/fonts/WorkSans-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 700;
+  src: url('./assets/fonts/WorkSans-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 800;
+  src: url('./assets/fonts/WorkSans-ExtraBold.ttf');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 900;
+  src: url('./assets/fonts/WorkSans-Black.ttf');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 100;
+  font-style: italic;
+  src: url('./assets/fonts/WorkSans-ThinItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 200;
+  font-style: italic;
+  src: url('./assets/fonts/WorkSans-ExtraLightItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 300;
+  font-style: italic;
+  src: url('./assets/fonts/WorkSans-LightItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 400;
+  font-style: italic;
+  src: url('./assets/fonts/WorkSans-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 500;
+  font-style: italic;
+  src: url('./assets/fonts/WorkSans-MediumItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 600;
+  font-style: italic;
+  src: url('./assets/fonts/WorkSans-SemiBoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 700;
+  font-style: italic;
+  src: url('./assets/fonts/WorkSans-BoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 800;
+  font-style: italic;
+  src: url('./assets/fonts/WorkSans-ExtraBoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 900;
+  font-style: italic;
+  src: url('./assets/fonts/WorkSans-BlackItalic.ttf');
+}
+
+/*
+  Perfect Scrollbar
+*/
+.scrollbar-container {
+  position: relative;
+  height: 100%;
+}
+
+.ps {
+  overflow: hidden;
+  touch-action: auto;
+}
+
+.ps__rail-x {
+  display: none;
+  background-color: #d7e1eb;
+  height: 6px;
+  bottom: 0;
+  position: absolute;
+  border-radius: 6px;
+  opacity: 0;
+  transition: background-color 0.2s linear, opacity 0.2s linear;
+}
+
+.ps__rail-y {
+  display: none;
+  background-color: #d7e1eb;
+  width: 6px;
+  right: 0;
+  position: absolute;
+  border-radius: 6px;
+  opacity: 0;
+  transition: background-color 0.2s linear, opacity 0.2s linear;
+}
+
+.ps--active-x > .ps__rail-x,
+.ps--active-y > .ps__rail-y {
+  display: block;
+  background-color: transparent;
+}
+
+.ps:hover > .ps__rail-x,
+.ps:hover > .ps__rail-y,
+.ps--focus > .ps__rail-x,
+.ps--focus > .ps__rail-y,
+.ps--scrolling-x > .ps__rail-x,
+.ps--scrolling-y > .ps__rail-y {
+  opacity: 1;
+}
+
+.ps__thumb-x {
+  background-color: #a3b2c5;
+  border-radius: 6px;
+  height: 6px;
+  position: absolute;
+  transition: background-color 0.2s linear, height 0.2s ease-in-out;
+}
+
+.ps__thumb-y {
+  background-color: #a3b2c5;
+  border-radius: 6px;
+  width: 6px;
+  position: absolute;
+  transition: background-color 0.2s linear, height 0.2s ease-in-out;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
