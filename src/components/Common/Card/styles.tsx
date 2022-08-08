@@ -55,7 +55,7 @@ export const CardContent = styled(PerfectScrollbar)<{
       : `${props.padding}px`};
   height: ${(props) =>
     props.height === undefined
-      ? '392px'
+      ? '100%'
       : typeof props.height === 'string'
       ? props.height
       : `${props.height}px`};

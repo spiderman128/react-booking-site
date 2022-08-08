@@ -1,12 +1,15 @@
 {
   "sidebar": {
-    "dashboard": "Dashboard",
+    "home": "Home",
     "leads": "Leads",
     "clients": "Clients",
     "objects": "Objects",
     "brokers": "Brokers",
     "faq": "FAQ",
     "logout": "Log Out"
+  },
+  "page_title": {
+    "dashboard": "Dashboard"
   },
   "header": {
     "search": "Search Objects by Name, City, Agent",
@@ -54,6 +57,11 @@
     "password_not_matched": "The passwords do not match"
   },
   "dashboard": {
+    "overview": "Overview",
+    "all_time": "All time",
+    "this_month": "This Month",
+    "last_month": "Last Month",
+
     "last_chats": "Last Chats",
     "search": "Search Chats by Name",
     "last_submitted_objects": "Last Submitted Objects",
@@ -70,9 +78,6 @@
     "consultation_documents": "Consultation Documents",
     "objects_overview": "Objects Overview",
     "objects_value": "Objects Value",
-    "linkedin_feed": "LinkedIn Feed",
-    "last_month": "Last Month",
-    "this_month": "This Month",
     "download": "Download",
     "objects": "Objects",
     "comdominium": "Comdominium",

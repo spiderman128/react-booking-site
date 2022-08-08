@@ -7,6 +7,11 @@ interface INavLink {
   path: string;
 }
 
+export const CARD_LAYOUT_SPACING = {
+  row: 10,
+  column: 10,
+}
+
 const LAYOUTS_IN_LARGE_SCREENS = [
   { i: 'a', x: 0, y: 0, w: 1, h: 1, visible: true, title: 'last_chats' },
   {
@@ -100,8 +105,8 @@ export const INITIAL_DASHBOARD_LAYOUTS = {
 
 export const NAV_LINKS: INavLink[] = [
   {
-    label: 'dashboard',
-    icon: 'panel',
+    label: 'home',
+    icon: 'home',
     path: ROUTES.DASHBOARD,
   },
   {

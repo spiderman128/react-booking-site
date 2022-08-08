@@ -14,6 +14,7 @@ import {useTranslation} from 'react-i18next';
 // Interfaces
 export interface ICardProps {
   title: ReactNode;
+  titleColor?: string;
   subheader?: ReactNode;
   headerDivider?: boolean;
   contentHeight?: string | number;
@@ -39,6 +40,7 @@ export const Card: FC<ICardProps> = ({
   searchable,
   onSearch,
   search,
+  titleColor="primary.main",
 }) => {
   // Get translatio from hook
   const { t } = useTranslation();
@@ -60,11 +62,30 @@ export const Card: FC<ICardProps> = ({
     }
   };
 
+  const TitleComponent = ({ title, color }) => {
+    return (
+      <div>
+        <Box 
+          component="span" 
+          sx={{
+            backgroundColor: color, 
+            color: color, 
+            mr: 15, 
+            borderRadius: '5px'
+          }}
+        >
+          $
+        </Box>
+        {title}
+      </div>
+    );
+  };
+
   // Return Card component
   return (
     <S.Card sx={sx}>
       <S.CardHeader
-        title={!isSearching && title}
+        title={!isSearching && <TitleComponent title={title} color={titleColor} />}
         subheader={subheader}
         headerDivider={headerDivider}
         className={isSearching ? 'is-searching' : ''}
