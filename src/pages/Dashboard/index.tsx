@@ -1,6 +1,6 @@
 // Dependencies
 import React, { FC, useRef } from 'react';
-import { Grid, Stack } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 // Widgets
 import {
@@ -12,17 +12,25 @@ import {
   ProtipsWidget,
   RefundRequestsWidget,
 } from './Widgets';
-import { CARD_LAYOUT_SPACING } from '../../constants';
+import { Grid, Stack } from '@mui/material';
+
+// Styles
 import * as S from './styles';
+
+// Constants
+import { CARD_LAYOUT_SPACING } from '../../constants';
 
 // Export dashboard page
 export const DashboardPage: FC = () => {
 
   const contentRef = useRef<HTMLDivElement>(null);
 
+  const { t } = useTranslation();
+
   // Return dashboard page
   return (
     <S.Dashboard ref={contentRef}>
+      <h3 className='mb-3 fw-bold'>{t('page_title.dashboard')}</h3>
       <Grid container spacing={CARD_LAYOUT_SPACING.row}>
 
         {/* LEFT SIDE WIDGET LIST */}

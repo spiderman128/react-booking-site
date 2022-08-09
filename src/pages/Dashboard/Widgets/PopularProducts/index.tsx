@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 // Components
 import { Card } from '../../../../components';
-import { Divider, Stack } from '@mui/material';
+import { Avatar, Divider, Stack } from '@mui/material';
 
 // Styles
 import * as S from './styles';
@@ -49,7 +49,7 @@ export const PopularProductsWidget: FC = () => {
     return (
       <S.ProductItemWrapper>
         <div className='me-3'>
-          <img alt={title} src={`/assets/images/dashboard/${img}`} width={64} height={64} className='rounded-8' />
+          <Avatar alt={title} src={`/assets/images/dashboard/${img}`} sx={{ width: 64, height: 64 }} className='rounded-8' />
         </div>
         <div className='me-auto'>
           <div>{title}</div>

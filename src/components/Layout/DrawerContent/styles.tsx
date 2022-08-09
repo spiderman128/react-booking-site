@@ -1,6 +1,6 @@
 // Dependencies
 import styled from 'styled-components';
-import { Avatar, ButtonBase, Typography } from '@mui/material';
+import { Avatar, ButtonBase, Switch, Typography } from '@mui/material';
 
 export const Menu = styled.div``;
 

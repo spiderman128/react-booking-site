@@ -282,7 +282,7 @@ export const ClientsPage: FC = () => {
 
       {tab === 0 && (
         <Card
-          headerDivider
+          headerdivider
           contentHeight="100%"
           contentPadding={0}
           sx={{

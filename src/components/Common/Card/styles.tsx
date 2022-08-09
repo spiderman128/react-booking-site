@@ -11,11 +11,11 @@ export const Card = styled(MuiCard)`
   }
 `;
 
-export const CardHeader = styled(MuiCardHeader)<{ headerDivider?: boolean }>`
+export const CardHeader = styled(MuiCardHeader)<{ headerdivider?: boolean }>`
   && {
     border-bottom-color: ${(props) => props.theme.palette.lightCyan};
     border-bottom-style: solid;
-    border-bottom-width: ${(props) => (props.headerDivider ? 1 : 0)}px;
+    border-bottom-width: ${(props) => (props.headerdivider ? 1 : 0)}px;
 
     &.is-searching {
       .MuiCardHeader-action {

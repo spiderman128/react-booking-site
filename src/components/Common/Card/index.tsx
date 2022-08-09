@@ -16,7 +16,7 @@ export interface ICardProps {
   title: ReactNode;
   titleColor?: string;
   subheader?: ReactNode;
-  headerDivider?: boolean;
+  headerdivider?: boolean;
   contentHeight?: string | number;
   contentPadding?: string | number;
   children: ReactNode;
@@ -31,7 +31,7 @@ export interface ICardProps {
 export const Card: FC<ICardProps> = ({
   title,
   subheader,
-  headerDivider,
+  headerdivider,
   children,
   contentHeight,
   contentPadding,
@@ -87,7 +87,7 @@ export const Card: FC<ICardProps> = ({
       <S.CardHeader
         title={!isSearching && <TitleComponent title={title} color={titleColor} />}
         subheader={subheader}
-        headerDivider={headerDivider}
+        headerdivider={headerdivider}
         className={isSearching ? 'is-searching' : ''}
         action={
           <>

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 // Components
 import { Card } from '../../../../components';
-import { Divider, Stack } from '@mui/material';
+import { Avatar, Divider, Stack } from '@mui/material';
 import { ChatOutlined, FavoriteBorderOutlined, Link } from '@mui/icons-material';
 
 // Styles
@@ -51,7 +51,7 @@ export const CommentsWidget: FC = () => {
         <div className='d-flex font-size-15'>
           {/* USER AVATAR */}
           <div className='me-3'>
-            <img alt={name} src={`/assets/images/dashboard/${avatar}`} width={64} height={64} className='rounded-circle' />
+            <Avatar alt={name} src={`/assets/images/dashboard/${avatar}`} sx={{ width: 64, height: 64 }} className='rounded-circle' />
           </div>
           <div className='width-match-parent'>
             

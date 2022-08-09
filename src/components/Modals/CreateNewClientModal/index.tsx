@@ -18,7 +18,6 @@ import { IForm } from '../../../interfaces';
 
 // Styles
 import * as S from './styles';
-import * as Yup from 'yup';
 import { buildFormInitialData, buildFormSchema } from '../../../utils';
 
 interface ICreateNewClientModal {

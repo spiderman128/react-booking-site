@@ -1,6 +1,6 @@
 // Dependencies
 import { FC } from 'react';
-import { ListItemText } from '@mui/material';
+import { Chip, Divider, FormControlLabel, ListItemText, Switch } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -27,9 +27,7 @@ export const DrawerContent: FC<IDrawerContentProps> = ({
   const { t } = useTranslation();
   const logoutAction = useLogoutAction();
 
-  const handleLogout = () => {
-    logoutAction();
-  };
+  
 
   return (
     <>
@@ -46,31 +44,38 @@ export const DrawerContent: FC<IDrawerContentProps> = ({
           </S.MenuItem>
         ))}
       </S.Menu>
-      <S.BottomMenu>
-        {/* @ts-ignore */}
-        <S.MenuItem component={NavLink} to={ROUTES.PROFILE}>
-          <S.MenuItemAvatar src="/assets/images/avatar.png" alt="avatar" />
-          {!isCollapsed && (
-            <ListItemText
-              sx={{ my: 0, ml: 12 }}
-              primary="Darrell Steward"
-              secondary="IBM"
-              primaryTypographyProps={{
-                variant: 'h3',
-                sx: { whiteSpace: 'nowrap', overflow: 'hidden' },
-              }}
-            />
-          )}
-        </S.MenuItem>
-        <S.MenuItem onClick={handleLogout}>
-          <S.MenuItemIcon>
-            <Icon name="box-arrow-right" />
-          </S.MenuItemIcon>
-          {!isCollapsed && (
-            <S.MenuItemText variant="h3">{t('sidebar.logout')}</S.MenuItemText>
-          )}
-        </S.MenuItem>
-      </S.BottomMenu>
+      
+      {isCollapsed
+        ? <S.BottomMenu>
+            <Divider className='my-3' />
+            <div className='py-3 px-4 font-size-15'>
+              <i className='fa fa-question-circle-o me-2' />
+            </div>
+            <div className='py-3 px-4'>
+              <FormControlLabel
+                control={
+                  <Switch size="small"/>
+                }
+                label=""
+              />
+            </div>
+          </S.BottomMenu>
+        : <S.BottomMenu>
+            <Divider className='my-3' />
+            <div className='py-3 px-4 d-flex font-size-15 width-match-parent'>
+              <div className='me-auto'><i className='fa fa-question-circle-o me-2' />{t('sidebar.help')}</div>
+              <div><Chip label="8" /></div>
+            </div>
+            <div className='py-3 px-4'>
+              <FormControlLabel
+                control={
+                  <Switch name="jason" className='me-4' />
+                }
+                label="Theme"
+              />
+            </div>
+          </S.BottomMenu>
+      }
     </>
   );
 };

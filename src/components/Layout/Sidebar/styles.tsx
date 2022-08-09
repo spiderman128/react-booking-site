@@ -4,7 +4,7 @@ import { MenuItem, MenuItemAvatar } from '../DrawerContent/styles';
 
 // Export styled components
 export const Sidebar = styled.div<{ isCollapsed: boolean }>`
-  width: ${(props) => (props.isCollapsed ? 88 : 256)}px;
+  width: ${(props) => (props.isCollapsed ? 88 : 340)}px;
   padding: 24px 20px;
   height: 100vh;
   display: flex;

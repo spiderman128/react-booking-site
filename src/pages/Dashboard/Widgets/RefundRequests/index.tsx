@@ -1,5 +1,5 @@
 // Dependencies
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // Components

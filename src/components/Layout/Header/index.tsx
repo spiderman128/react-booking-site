@@ -1,6 +1,14 @@
 // Dependencies
 import { FC, useEffect, useState } from 'react';
-import { Button, IconButton, Stack, Typography } from '@mui/material';
+import {
+  Avatar,
+  Badge,
+  Box,
+  Button,
+  IconButton,
+  Stack,
+  Typography,
+} from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -18,6 +26,11 @@ import { getCreateClientForms } from '../../../redux/actions/client.action';
 
 // Styles
 import * as S from './styles';
+import {
+  ChatOutlined,
+  Mail,
+  NotificationsNoneOutlined,
+} from '@mui/icons-material';
 
 // Export header component
 export const Header: FC = () => {
@@ -63,35 +76,36 @@ export const Header: FC = () => {
   return (
     <S.Header>
       <S.DesktopHeader sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}>
-        <Typography variant="h1">Hello, Darrell</Typography>
+        <Input
+          size="large"
+          startAdornment={<Icon name="search" size={23} />}
+          placeholder={t('header.search')}
+          sx={{ width: 370 }}
+        />
         <Stack direction="row" spacing={16}>
-          <Input
-            size="large"
-            startAdornment={<Icon name="search" size={23} />}
-            placeholder={t('header.search')}
-            sx={{ width: 370, display: { md: 'none', lg: 'flex' } }}
-          />
-          <IconButton
-            sx={{ display: { md: 'block', lg: 'none' } }}
-            size="large"
-            onClick={handleOpenCustomizeDashboard}
-          >
-            <Icon name="search" />
-          </IconButton>
-          <IconButton size="large" onClick={handleOpenCustomizeDashboard}>
-            <Icon name="checks-grid" />
-          </IconButton>
-          <IconButton size="large" onClick={handleOpenChatsModal}>
-            <Icon name="message" />
-          </IconButton>
           <Button
             color="primary"
             startIcon={<Icon name="plus-lg" />}
             size="large"
-            onClick={handleOpenCreateClientModal}
           >
-            {t('header.new_client')}
+            {t('header.create')}
           </Button>
+          <IconButton size="large">
+            <Badge color="error" variant="dot">
+              <ChatOutlined />
+            </Badge>
+          </IconButton>
+          <IconButton size="large">
+            <Badge color="error" variant="dot">
+              <NotificationsNoneOutlined />
+            </Badge>
+          </IconButton>
+          <Avatar
+            src="/assets/images/avatar.png"
+            alt="user-avatar"
+            sx={{ width: 50, height: 50, bgcolor: '#FFBC99' }}
+            className="rounded-circle"
+          />
         </Stack>
       </S.DesktopHeader>
       <S.MobileHeader sx={{ display: { sm: 'block', md: 'none' } }}>
@@ -102,34 +116,32 @@ export const Header: FC = () => {
           mb={!openMobileDrawer ? 16 : 0}
         >
           <S.Brand>
-            <IconButton
-              color="default"
-              onClick={() => setOpenMobileDrawer(!openMobileDrawer)}
-            >
+            <IconButton color="default" onClick={() => setOpenMobileDrawer(!openMobileDrawer)}>
               <Icon size={14} name={!openMobileDrawer ? 'menu' : 'x-lg'} />
             </IconButton>
             <S.Logo src="/assets/images/logo.svg" alt="logo" />
           </S.Brand>
           {!openMobileDrawer && (
             <Stack direction="row" spacing={16}>
-              <IconButton onClick={handleOpenCustomizeDashboard}>
+              <IconButton>
                 <Icon name="search" />
               </IconButton>
-              <IconButton onClick={handleOpenCustomizeDashboard}>
-                <Icon name="checks-grid" />
-              </IconButton>
-              <IconButton onClick={handleOpenChatsModal}>
-                <Icon name="message" />
-              </IconButton>
-              <S.DarkIconButton onClick={handleOpenCreateClientModal}>
+              <S.DarkIconButton>
                 <Icon name="plus-lg" color="secondary" />
               </S.DarkIconButton>
+              <IconButton>
+                <Badge color="error" variant="dot">
+                  <ChatOutlined />
+                </Badge>
+              </IconButton>
+              <IconButton>
+                <Badge color="error" variant="dot">
+                  <NotificationsNoneOutlined />
+                </Badge>
+              </IconButton>
             </Stack>
           )}
         </Stack>
-        {!openMobileDrawer && (
-          <Typography variant="h2">Hello, Darrell</Typography>
-        )}
         <S.MobileDrawer
           sx={{ display: { sm: 'block', md: 'none' } }}
           anchor="top"
@@ -139,21 +151,6 @@ export const Header: FC = () => {
           <DrawerContent />
         </S.MobileDrawer>
       </S.MobileHeader>
-      {openCustomizeDashboard && (
-        <CustomizeDashboardModal
-          open={openCustomizeDashboard}
-          onClose={handleCloseCustomizeDashboard}
-        />
-      )}
-      {openCreateClientModal && (
-        <CreateNewClientModal
-          open={openCreateClientModal}
-          onClose={handleCloseCreateClientModal}
-        />
-      )}
-      {openChatsModal && (
-        <ChatsModal open={openChatsModal} onClose={handleCloseChatsModal} />
-      )}
     </S.Header>
   );
 };

@@ -273,7 +273,7 @@ export const LeadsPage: FC = () => {
   // Return leads page
   return (
     <Card
-      headerDivider
+      headerdivider
       contentHeight="100%"
       contentPadding={0}
       sx={{
