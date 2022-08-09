@@ -1,6 +1,6 @@
 // Dependencies
 import { FC } from 'react';
-import { Chip, Divider, FormControlLabel, ListItemText, Switch } from '@mui/material';
+import { Chip, Divider, FormControlLabel, Switch } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -11,10 +11,7 @@ import { Icon } from '../../Common';
 import * as S from './styles';
 
 // Global constants
-import { NAV_LINKS, ROUTES } from '../../../constants';
-
-// Hooks
-import { useLogoutAction } from '../../../hooks';
+import { NAV_LINKS } from '../../../constants';
 
 interface IDrawerContentProps {
   isCollapsed?: boolean;
@@ -24,10 +21,7 @@ interface IDrawerContentProps {
 export const DrawerContent: FC<IDrawerContentProps> = ({
   isCollapsed = false,
 }) => {
-  const { t } = useTranslation();
-  const logoutAction = useLogoutAction();
-
-  
+  const { t } = useTranslation();  
 
   return (
     <>

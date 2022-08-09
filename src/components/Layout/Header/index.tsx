@@ -1,76 +1,30 @@
 // Dependencies
-import { FC, useEffect, useState } from 'react';
-import {
-  Avatar,
-  Badge,
-  Box,
-  Button,
-  IconButton,
-  Stack,
-  Typography,
-} from '@mui/material';
-import { useDispatch } from 'react-redux';
+import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // Components
 import { Icon, Input } from '../../Common';
 import { DrawerContent } from '../DrawerContent';
 import {
-  ChatsModal,
-  CreateNewClientModal,
-  CustomizeDashboardModal,
-} from '../../Modals';
-
-// Actions
-import { getCreateClientForms } from '../../../redux/actions/client.action';
-
-// Styles
-import * as S from './styles';
+  Avatar,
+  Badge,
+  Button,
+  IconButton,
+  Stack,
+} from '@mui/material';
 import {
   ChatOutlined,
-  Mail,
   NotificationsNoneOutlined,
 } from '@mui/icons-material';
+
+// Styles
+import * as S from './styles'
 
 // Export header component
 export const Header: FC = () => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
 
   const [openMobileDrawer, setOpenMobileDrawer] = useState<boolean>(false);
-  const [openCustomizeDashboard, setOpenCustomizeDashboard] =
-    useState<boolean>(false);
-  const [openCreateClientModal, setOpenCreateClientModal] =
-    useState<boolean>(false);
-  const [openChatsModal, setOpenChatsModal] = useState<boolean>(false);
-
-  useEffect(() => {
-    dispatch(getCreateClientForms());
-  }, [dispatch]);
-
-  const handleCloseCustomizeDashboard = () => {
-    setOpenCustomizeDashboard(false);
-  };
-
-  const handleOpenCustomizeDashboard = () => {
-    setOpenCustomizeDashboard(true);
-  };
-
-  const handleOpenCreateClientModal = () => {
-    setOpenCreateClientModal(true);
-  };
-
-  const handleCloseCreateClientModal = () => {
-    setOpenCreateClientModal(false);
-  };
-
-  const handleOpenChatsModal = () => {
-    setOpenChatsModal(true);
-  };
-
-  const handleCloseChatsModal = () => {
-    setOpenChatsModal(false);
-  };
 
   // Return header component
   return (

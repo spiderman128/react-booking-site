@@ -1,1 +1,1 @@
-export * from './auth.schema';
+export default "VALIDATIONS";

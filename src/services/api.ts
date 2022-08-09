@@ -1,2 +1,1 @@
-export * as auth from './auth.service';
-export * as client from './client.service';
+export default "API_SERVICES";
