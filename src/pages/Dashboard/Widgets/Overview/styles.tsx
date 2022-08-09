@@ -1,6 +1,5 @@
 // Dependencies
 import styled from 'styled-components';
-import PerfectScrollbar from 'react-perfect-scrollbar';
 import { Avatar, Box, Typography } from '@mui/material';
 
 // Export styled components

@@ -6,16 +6,19 @@ import {
   SelectChangeEvent,
   Grid,
   Chip,
+  Button,
 } from '@mui/material';
 import { Info, ArrowDownward, ArrowUpward, ArrowForward } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 
+// Components
+import { Card } from '../../../../components';
+
 // Styles
 import * as S from './styles';
-import { Card } from '../../../../components';
-import { CARD_LAYOUT_SPACING } from '../../../../constants';
 
 // Constants
+import { CARD_LAYOUT_SPACING } from '../../../../constants';
 const data = [
   {
     avatar: 'avatar1.png',
@@ -31,7 +34,7 @@ const data = [
   },
 ];
 
-// Export linked-in-feed widget
+// Export overview widget
 export const OverviewWidget: FC = () => {
   const { t } = useTranslation();
 
@@ -58,17 +61,17 @@ export const OverviewWidget: FC = () => {
   }) => {
     return (
       <S.SwitchItemWrapper isActive={value === option} onClick={handleOptionChange(value)}>
-        <div className="d-flex justify-content-between">
-          <div className="d-flex align-items-start p-3 pb-1">
+        <div className='d-flex justify-content-between'>
+          <div className='d-flex align-items-start p-3 pb-1'>
             <S.OverviewIcon
               src={`/assets/images/dashboard/${iconName}.svg`}
-              alt="icon1"
+              alt={iconName}
             />
-            <div className="ms-4">
-              <div className="text-secondary">
+            <div className='ms-4'>
+              <div className='text-secondary'>
                 {title} <Info />
               </div>
-              <h2 className="switch-value">{number}</h2>
+              <h2 className='switch-value'>{number}</h2>
             </div>
           </div>
           <Chip
@@ -81,14 +84,14 @@ export const OverviewWidget: FC = () => {
     );
   };
 
-  // Return linked-in-feed widget
+  // Return overview widget
   return (
     <Card
       title={t('dashboard.overview')}
-      titleColor="#FFBC99"
+      titleColor='#FFBC99'
       action={
         <Select value={date} onChange={handleChangeDate}>
-          <MenuItem value="all time">{t('dashboard.all_time')}</MenuItem>
+          <MenuItem value='all time'>{t('dashboard.all_time')}</MenuItem>
         </Select>
       }
     >
@@ -97,20 +100,20 @@ export const OverviewWidget: FC = () => {
         <Grid container spacing={CARD_LAYOUT_SPACING.row}>
           <Grid item xs={6}>
             <CardSwitchOption
-              value="customers"
-              iconName="overview-icon1"
-              title="Customers"
-              number="1024"
+              value='customers'
+              iconName='overview-icon1'
+              title={t('dashboard.customers')}
+              number='1024'
               isIncreased={true}
               changePercent={37.8}
             />
           </Grid>
           <Grid item xs={6}>
             <CardSwitchOption
-              value="income"
-              iconName="overview-icon2"
-              title="Income"
-              number="256k"
+              value='income'
+              iconName='overview-icon2'
+              title={t('dashboard.income')}
+              number='256k'
               isIncreased={false}
               changePercent={37.8}
             />
@@ -119,17 +122,17 @@ export const OverviewWidget: FC = () => {
       </S.CardSwitchSelector>
 
       {/* SEND MESSAGE BUTTON */}
-      <div className="d-flex mb-5 px-1">
-        <div className="me-auto ms-2">
+      <div className='d-flex mb-5 px-1'>
+        <div className='me-auto ms-2'>
           Welcome <strong>857 customers</strong> with a <br/> personal message 😎
         </div>
-        <button className='btn btn-outline-dark fw-bold'>Send Message</button>
+        <Button className='fw-bold'>{t('dashboard.send_message')}</Button>
       </div>
       
       {/* AVATAR LIST */}
       <Grid container columns={{ xs: 9, sm: 9, md: 12 }}>
         {data.map((item, index) => (
-          <Grid item xs={3}>
+          <Grid item xs={3} key={index}>
             <S.OverviewAvatar
               alt={item.name}
               src={`/assets/images/dashboard/${item.avatar}`}
@@ -141,7 +144,7 @@ export const OverviewWidget: FC = () => {
           <S.OverviewAvatar>
             <ArrowForward />
           </S.OverviewAvatar>
-          <p className='mt-2 text-center'>View all</p>
+          <p className='mt-2 text-center'>{t('dashboard.view_all')}</p>
         </Grid>
       </Grid>
 

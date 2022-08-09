@@ -18,7 +18,7 @@ const chartData = [
   { name: '28', value: 22 },
 ];
 
-// Export object-overview widget
+// Export product-views widget
 export const ProductViewsWidget: FC = () => {
   const { t } = useTranslation();
   const [date, setDate] = useState('last 7 days');
@@ -28,14 +28,14 @@ export const ProductViewsWidget: FC = () => {
     setDate(e.target.value);
   };
 
-  // Return object-overview widget
+  // Return product-views widget
   return (
     <Card
       title={t('dashboard.product_views')}
-      titleColor="#CABDFF"
+      titleColor='#CABDFF'
       action={
         <Select value={date} onChange={handleChangeDate}>
-          <MenuItem value="last 7 days">{t('dashboard.last_7_days')}</MenuItem>
+          <MenuItem value='last 7 days'>{t('dashboard.last_7_days')}</MenuItem>
         </Select>
       }
     >
