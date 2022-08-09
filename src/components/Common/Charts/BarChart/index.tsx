@@ -16,9 +16,6 @@ const Colors = [
   '#799FE5',
   '#4ED2A2',
   '#FFA67B',
-  '#B67FEF',
-  '#67E2E2',
-  '#D7D7D7',
 ];
 const size = { xl: 320, lg: 320, md: 240, sm: 196 };
 
@@ -91,21 +88,19 @@ export const BarChart: FC<IChartProps> = ({ data }) => {
             .replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1.');
           return `
             <div class="bar-chart-tooltip">
-              <div>${value}€</div>
+              <div>${point.name} September</div>
               <div>
-                <svg width="20" height="20" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle;" fill='#799FE5'><path d="M405.333 974.222v-249.27c0-17.397 17.778-35.174 35.556-35.174h142.222c17.778 0 35.556 17.778 35.556 35.556v248.889c0 19.638 15.918 35.556 35.556 35.556h284.444c19.638 0 35.556-15.918 35.556-35.556v-497.778c0-9.43-3.743-18.474-10.416-25.141l-96.25-96.253v-234.161c0-19.637-15.918-35.556-35.556-35.556h-71.111c-19.638 0-35.556 15.919-35.556 35.556v91.939l-188.192-188.192c-13.885-13.885-36.398-13.885-50.283 0l-426.667 426.667c-6.668 6.668-10.414 15.712-10.414 25.141v497.778c0 19.638 15.919 35.556 35.556 35.556h284.444c19.637 0 35.556-15.918 35.556-35.556z" fill="#799FE5"></path></svg>
-                ${point.objects}
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="12" height="12" rx="4" fill="#B5E4CA"/>
+                </svg>              
+                ${value}k
               </div>
             </div>
           `;
         },
       },
       xAxis: {
-        visible: false,
-        labels: {
-          enabled: false,
-        },
-        categories: ['Comdominium', 'Delivery Indicative Offer', 'Assessment'],
+        categories: [22, 23, 24, 25, 26, 27, 28],
         gridLineColor: '#00fff0',
         startOnTick: false,
         endOnTick: false,
@@ -133,7 +128,7 @@ export const BarChart: FC<IChartProps> = ({ data }) => {
           },
           formatter: function () {
             // @ts-ignore
-            return this.value + '€';
+            return this.value;
           },
         },
       },
@@ -147,38 +142,9 @@ export const BarChart: FC<IChartProps> = ({ data }) => {
     [chartData, breakpoint]
   );
 
-  const handleClickLegendItem = (seriesName: string) => {
-    setChartData(
-      chartData.map((item: any) => {
-        if (item.name === seriesName) {
-          item = {
-            ...item,
-            disabled: !item.disabled,
-          };
-        }
-        return item;
-      })
-    );
-  };
-
   return (
     <S.BarChartWrapper>
       <ReactHighcharts config={chartOptions} />
-      <S.LegendWrapper>
-        {chartData.map((item, index) => (
-          <div
-            key={`item-${index}`}
-            className={`legend-item ${item.disabled ? 'disabled' : ''}`}
-            onClick={() => handleClickLegendItem(item.name)}
-          >
-            <div className="legend-symbol" style={{ background: item.color }} />
-            <div className="legend-label">
-              <p>{item.name}</p>
-              <p>{`${item.objects} Objects`}</p>
-            </div>
-          </div>
-        ))}
-      </S.LegendWrapper>
     </S.BarChartWrapper>
   );
 };

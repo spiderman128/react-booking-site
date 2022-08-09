@@ -9,15 +9,19 @@ import { BarChart } from '../../../../components/Common/Charts/BarChart';
 
 // Constants
 const chartData = [
-  { name: 'Comdominium', objects: 1, value: 1139000 },
-  { name: 'Delivery Indicative Offer', objects: 4, value: 4139000 },
-  { name: 'Assessment', objects: 4, value: 7139000 },
+  { name: '22', value: 27 },
+  { name: '23', value: 21 },
+  { name: '24', value: 30 },
+  { name: '25', value: 20 },
+  { name: '26', value: 26 },
+  { name: '27', value: 15 },
+  { name: '28', value: 22 },
 ];
 
 // Export object-overview widget
-export const ObjectsValueWidget: FC = () => {
+export const ProductViewsWidget: FC = () => {
   const { t } = useTranslation();
-  const [date, setDate] = useState('last month');
+  const [date, setDate] = useState('last 7 days');
 
   // Date change handler
   const handleChangeDate = (e: SelectChangeEvent) => {
@@ -27,11 +31,11 @@ export const ObjectsValueWidget: FC = () => {
   // Return object-overview widget
   return (
     <Card
-      title={t('dashboard.objects_overview')}
+      title={t('dashboard.product_views')}
+      titleColor="#CABDFF"
       action={
         <Select value={date} onChange={handleChangeDate}>
-          <MenuItem value="last month">{t('dashboard.last_month')}</MenuItem>
-          <MenuItem value="this month">{t('dashboard.this_month')}</MenuItem>
+          <MenuItem value="last 7 days">{t('dashboard.last_7_days')}</MenuItem>
         </Select>
       }
     >

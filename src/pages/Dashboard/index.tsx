@@ -5,7 +5,7 @@ import { Grid, Stack } from '@mui/material';
 // Widgets
 import {
   OverviewWidget,
-  ObjectsValueWidget,
+  ProductViewsWidget,
 } from './Widgets';
 import { CARD_LAYOUT_SPACING } from '../../constants';
 import * as S from './styles';
@@ -22,7 +22,7 @@ export const DashboardPage: FC = () => {
         <Grid item xs={12} sm={12} md={8} lg={8} xl={8}>
           <Stack spacing={CARD_LAYOUT_SPACING.column}>
             <OverviewWidget />
-            <ObjectsValueWidget />
+            <ProductViewsWidget />
           </Stack>
         </Grid>
         <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>

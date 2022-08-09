@@ -134,7 +134,7 @@ export const OverviewWidget: FC = () => {
               alt={item.name}
               src={`/assets/images/dashboard/${item.avatar}`}
             />
-            <p className='mt-2 text-center'>Gladyce</p>
+            <p className='mt-2 text-center'>{item.name}</p>
           </Grid>
         ))}
         <Grid item xs={3}>

@@ -59,9 +59,11 @@
   "dashboard": {
     "overview": "Overview",
     "all_time": "All time",
+    "product_views": "Product views",
+    "last_7_days": "Last 7 days",
+
     "this_month": "This Month",
     "last_month": "Last Month",
-
     "last_chats": "Last Chats",
     "search": "Search Chats by Name",
     "last_submitted_objects": "Last Submitted Objects",
