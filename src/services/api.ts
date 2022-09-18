@@ -1,1 +1,1 @@
-export default "API_SERVICES";
+export const API_SERVICES = "API_SERVICES";
